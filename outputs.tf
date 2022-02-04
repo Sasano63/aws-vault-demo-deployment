@@ -10,6 +10,6 @@ output "public_ip3" {
   value = module.server3.public_ip_instance
 }
 
-output "Vault DNS name" {
+output "vault_dns" {
   value = aws_lb.vault-lb.dns_name
 }
