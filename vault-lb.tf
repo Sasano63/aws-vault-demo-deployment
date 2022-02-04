@@ -29,6 +29,7 @@ resource "aws_lb_target_group" "vault" {
   }
 }
 
+
 resource "aws_lb_target_group_attachment" "vault1" {
   target_group_arn = aws_lb_target_group.vault.arn
   target_id        = module.server1.instance_id
@@ -44,5 +45,11 @@ resource "aws_lb_target_group_attachment" "vault2" {
 resource "aws_lb_target_group_attachment" "vault3" {
   target_group_arn = aws_lb_target_group.vault.arn
   target_id        = module.server3.instance_id
+  port             = 8200
+}
+
+resource "aws_lb_target_group_attachment" "vault-lb" {
+  target_group_arn = aws_lb_target_group.vault.arn
+  target_id        = aws_lb.vault-lb.id
   port             = 8200
 }
