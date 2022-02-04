@@ -8,7 +8,7 @@ resource "aws_lb" "vault-lb" {
   }
 }
 
-resource "aws_alb_target_group" "vault" {
+resource "aws_lb_target_group" "vault" {
   name = "vault-target-group"
     tags = {
     Name = "vault-lb-target-group"

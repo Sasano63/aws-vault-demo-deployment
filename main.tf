@@ -46,7 +46,7 @@ resource "aws_route_table" "rtb_public" {
 
 module "subnet1" {
   source      = "./modules/subnet/"
-  vpc         = s
+  vpc         = aws_vpc.vpc.id
   cidr_block  = "10.0.1.0/24"
   az          = "eu-central-1a"
   route_table = aws_route_table.rtb_public.id
