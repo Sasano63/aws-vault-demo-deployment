@@ -46,7 +46,7 @@ resource "aws_route_table" "rtb_public" {
 
 module "subnet1" {
   source      = "./modules/subnet/"
-  vpc         = aws_vpc.vpc.id
+  vpc         = s
   cidr_block  = "10.0.1.0/24"
   az          = "eu-central-1a"
   route_table = aws_route_table.rtb_public.id
@@ -119,7 +119,6 @@ resource "aws_security_group" "sg_vpc" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
 
 
 resource "aws_kms_key" "kms_key_vault" {
